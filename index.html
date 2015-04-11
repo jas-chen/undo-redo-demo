@@ -18,9 +18,13 @@
             </div>
         </div>
         <div class="row">
-            <div id="user-list" class="col-xs-6 col-sm-6 col-md-6">
 
+            <!-- 使用者清單 -->
+            <div id="user-list" class="col-xs-6 col-sm-6 col-md-6">
+                <!-- 會由 handlebars.js 產生 html -->
             </div>
+
+            <!-- 新增使用者 -->
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -52,6 +56,7 @@
         </div>
     </div>
 
+    <!-- handlebars 樣板 -->
     <script id="user-tpl" type="text/x-handlebars-template">
         <ul class="list-group">
             {{#this}}
