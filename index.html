@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Undo/Redo Demo</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Undo/Redo Demo</h1>
+        <div class="tool-bar panel panel-default">
+            <div class="panel-body">
+                <button id="save-btn" type="button" class="btn btn-success btn-xs btn-save">存擋</button>
+                <button id="undo-btn" type="button" class="btn btn-default btn-xs btn-undo">復原</button>
+                <button id="redo-btn" type="button" class="btn btn-default btn-xs btn-redo">重做</button>
+            </div>
+        </div>
+        <div class="row">
+            <div id="user-list" class="col-xs-6 col-sm-6 col-md-6">
+
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">新增使用者</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="input-user-name">姓名</label>
+                                <input type="text" class="form-control" id="input-user-name" placeholder="姓名" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-user-email">Email</label>
+                                <input type="text" class="form-control" id="input-user-email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-user-birthday">生日</label>
+                                <input type="date" class="form-control" id="input-user-birthday" placeholder="生日" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-user-habits">興趣</label> <small>(請使用逗號分格)</small>
+                                <input type="text" class="form-control" id="input-user-habits" placeholder="跑步,看電影" required>
+                            </div>
+                            <button id="add-user-btn" type="submit" class="btn btn-primary btn-block">新增</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="user-tpl" type="text/x-handlebars-template">
+        <ul class="list-group">
+            {{#this}}
+            <li class="list-group-item user-info">
+                <button type="button" class="btn btn-default btn-xs btn-remove"
+                        onclick="UserList.remove({{@index}})">X</button>
+                <div>
+                    <h5>{{name}}</h5>
+                    <div>{{email}}</div>
+                    <div>{{localeDate birthday}}</div>
+                    <ul>
+                        {{#habits}}
+                        <li>{{this}}</li>
+                        {{/habits}}
+                    </ul>
+                </div>
+            </li>
+            {{/this}}
+        </ul>
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.btn-remove {
+    visibility: hidden;
+    float: right;
+}
+
+.btn-save {
+    float: right;
+}
+
+.user-info:hover .btn-remove {
+    visibility: visible;
+}
